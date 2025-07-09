@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Weather App (Ghazipur)</title>
+  <title>Anywhere Weather App</title>
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -47,9 +47,9 @@
   </style>
 </head>
 <body>
-  <h1>🌤️ Ghazipur Weather App</h1>
+  <h1>🌤️ Daily Weather App</h1>
   <div class="weather-box">
-    <button onclick="getWeather()">Get Ghazipur Weather</button>
+    <button onclick="getWeather()">Get  Weather</button>
     <div class="info" id="weatherInfo"></div>
   </div>
 
@@ -57,8 +57,8 @@
     const apiKey = '06961ed1610fdfd1eaae04ff4a385bbe'; 
 
     async function getWeather() {
-      const lat = 25.5856;
-      const lon = 83.5807;  
+      const lat = 30.4547;
+      const lon =  78.0820;  
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
       try {
