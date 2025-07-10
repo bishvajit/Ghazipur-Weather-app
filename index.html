@@ -3,48 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>Anywhere Weather App</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #4facfe, #00f2fe);
-      color: white;
-      text-align: center;
-      padding: 50px;
-    }
-
-    .weather-box {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 10px;
-      display: inline-block;
-      width: 300px;
-    }
-
-    button {
-      padding: 10px 15px;
-      border: none;
-      background: #ffffff;
-      color: #333;
-      border-radius: 5px;
-      cursor: pointer;
-      margin: 10px;
-      font-weight: bold;
-    }
-
-    button:hover {
-      background: #e0e0e0;
-    }
-
-    .info {
-      margin-top: 20px;
-      font-size: 18px;
-    }
-
-    img {
-      width: 80px;
-      height: 80px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <h1>🌤️ Daily Weather App</h1>
@@ -52,39 +12,5 @@
     <button onclick="getWeather()">Get  Weather</button>
     <div class="info" id="weatherInfo"></div>
   </div>
-
-  <script>
-    const apiKey = '06961ed1610fdfd1eaae04ff4a385bbe'; 
-
-    async function getWeather() {
-      const lat = 30.4547;
-      const lon =  78.0820;  
-      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
-
-      try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error('Weather data not found');
-
-        const data = await response.json();
-
-        const iconCode = data.weather[0].icon;
-        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
-
-        const weatherHTML = `
-          <h2>${data.name}, ${data.sys.country}</h2>
-          <img src="${iconUrl}" alt="Weather Icon" />
-          <p>🌡️ Temp: ${data.main.temp} °C</p>
-          <p>🌥️ Weather: ${data.weather[0].main}</p>
-          <p>💧 Humidity: ${data.main.humidity}%</p>
-          <p>💨 Wind Speed: ${data.wind.speed} m/s</p>
-        `;
-
-        document.getElementById('weatherInfo').innerHTML = weatherHTML;
-      } catch (error) {
-        document.getElementById('weatherInfo').innerHTML = `<p style="color: red;">${error.message}</p>`;
-        Bishvajit 
-      }
-    }
-  </script>
 </body>
 </html>
