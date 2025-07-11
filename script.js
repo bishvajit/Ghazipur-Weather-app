@@ -26,6 +26,5 @@ const apiKey = '06961ed1610fdfd1eaae04ff4a385bbe';
         document.getElementById('weatherInfo').innerHTML = weatherHTML;
       } catch (error) {
         document.getElementById('weatherInfo').innerHTML = `<p style="color: red;">${error.message}</p>`;
-        Bishvajit 
       }
     }
